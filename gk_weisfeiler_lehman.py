@@ -152,7 +152,7 @@ class GK_WL():
         """Compute the kernel value (similarity) between two graphs.
         The kernel is normalized to [0,1] by the equation:
         k_norm(g1, g2) = k(g1, g2) / sqrt(k(g1,g1) * k(g2,g2))
-        
+
         Parameters
         ----------
         g_1 : networkx.Graph
