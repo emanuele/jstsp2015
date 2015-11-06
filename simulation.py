@@ -1,3 +1,8 @@
+"""Simulation estimating Type I and Type II error of CBT and KTST.
+
+Author: Sandro Vega-Pons, Emanuele Olivetti
+"""
+
 import numpy as np
 from sklearn.metrics.pairwise import pairwise_distances
 from kernel_two_sample_test import MMD2u, compute_null_distribution
