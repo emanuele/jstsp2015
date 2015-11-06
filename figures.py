@@ -1,3 +1,8 @@
+"""Code to generate figures of the manuscript.
+
+Author: Sandro Vega-Pons, Emanuele Olivetti
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
@@ -22,7 +27,6 @@ sites = ["Beijing_Zang",
 
 
 # Results of the p-value KTST:
-
 
 DCE = [0.0004,
        0.0092,
@@ -86,7 +90,6 @@ SP = [0.003,
       0.0165]
 
 
-
 if __name__ == '__main__':
 
     p_value_threshold = 0.05
@@ -103,7 +106,8 @@ if __name__ == '__main__':
     np.set_printoptions(precision=3, suppress=True)
     plt.figure()
     pvalues_cbt_all = []
-    for name, data, symb in [('DCE', DCE, 'ro'), ('DRE', DRE, 'ks'), ('WL', WL, 'bv'), ('SP', SP, 'gx')]:
+    for name, data, symb in [('DCE', DCE, 'ro'), ('DRE', DRE, 'ks'),
+                             ('WL', WL, 'bv'), ('SP', SP, 'gx')]:
         accuracies = []
         p_values_acc = []
         for location in sites:
@@ -142,8 +146,8 @@ if __name__ == '__main__':
     plt.legend(loc='upper left')
     plt.savefig('pvalues_KTST_vs_CBT.pdf')
 
-
-    for name, data, symb in [('DCE', DCE, 'ro'), ('DRE', DRE, 'ks'), ('WL', WL, 'bv'), ('SP', SP, 'gx')]:
+    for name, data, symb in [('DCE', DCE, 'ro'), ('DRE', DRE, 'ks'),
+                             ('WL', WL, 'bv'), ('SP', SP, 'gx')]:
         print(name)
         accuracies = []
         p_values_acc = []
@@ -161,7 +165,8 @@ if __name__ == '__main__':
 
         plt.figure()
         plt.boxplot(pva.T)
-        plt.plot([0, pva.shape[0]+1], [p_value_threshold, p_value_threshold], 'g--')
+        plt.plot([0, pva.shape[0]+1], [p_value_threshold, p_value_threshold],
+                 'g--')
         sites_short = [site.split('_')[0] for site in sites]
         sites_short[sites_short.index('Schizophrenia')] = 'Schizophr.'
         sites_short[sites_short.index('Uri')] = 'Contex.Dis.'
@@ -170,7 +175,6 @@ if __name__ == '__main__':
         plt.yscale('log')
         plt.ylim([ymin, ymax])
         plt.savefig('pvalues_CBT_%s_boxplot.pdf' % name)
-
 
     print("")
     print("Correlation between pvalues of KTST and CBT:")
@@ -186,7 +190,9 @@ if __name__ == '__main__':
     null_distribution = np.zeros(iterations)
     for i in range(iterations):
         idx = np.random.permutation(range(pvalues_all.shape[0]))
-        pvalues_all_permuted = np.vstack([pvalues_all[idx, 0], pvalues_all[:, 1]]).T
+        pvalues_all_permuted = np.vstack([pvalues_all[idx, 0],
+                                          pvalues_all[:, 1]]).T
         null_distribution[i] = ss.spearmanr(pvalues_all_permuted)[0]
 
-    print("p-value (permutations) = %s" % (null_distribution > spearmanr).mean())
+    print("p-value (permutations) = %s" % (null_distribution >
+                                           spearmanr).mean())
