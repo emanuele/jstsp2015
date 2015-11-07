@@ -2,8 +2,8 @@
 mean discrepancy test statistic.
 
 See: "A Kernel Two-Sample Test", Arthur Gretton, Karsten M. Borgwardt,
-Malte J. Rasch, Bernhard Schölkopf, Alexander Smola; JMLR
-13(Mar):723−773, 2012.
+Malte J. Rasch, Bernhard Scholkopf, Alexander Smola; JMLR
+13(Mar):723-773, 2012.
 http://jmlr.csail.mit.edu/papers/v13/gretton12a.html
 
 See: https://github.com/emanuele/kernel_two_sample_test
