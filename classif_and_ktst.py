@@ -244,7 +244,7 @@ def plot_null_distribution(stats, stats_null, p_value, data_name='',
                 xytext=(-105, 30), textcoords='offset points',
                 bbox=dict(boxstyle="round", fc="1."),
                 arrowprops={"arrowstyle": "->",
-                            "connectionstyl"e="angle,angleA=0,angleB=90,rad=10"},
+                            "connectionstyle": "angle,angleA=0,angleB=90,rad=10"},
                 )
     plt.xlabel(stats_name)
     plt.ylabel('p(%s)' % stats_name)
