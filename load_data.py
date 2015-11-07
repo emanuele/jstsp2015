@@ -103,7 +103,7 @@ def load_1000_funct_connectome(data_folder='data', location='Baltimore',
             nm = '_'.join(spl[:-3])
             names.append(nm)
             y.append(dt_cls[pool[dt_name[nm]]])
-            assert(cs[y[-1]] == pool[dt_name[nm]], 'wrong class assignment')
+            assert cs[y[-1]] == pool[dt_name[nm]], 'wrong class assignment'
 
     X = np.zeros((len(connects), (connects[0].shape[0] *
                                   (connects[0].shape[1] - 1)) / 2))
